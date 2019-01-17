@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// import { HttpModule } from "@angular/http";
+
+//ROUTES
+import { APP_ROUTING } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
@@ -12,7 +16,9 @@ import { ShowHeroeComponent } from './components/heroes/show-heroe.component';
     ShowHeroeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    // HttpModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
