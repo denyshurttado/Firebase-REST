@@ -22,7 +22,14 @@ export class ShowHeroeComponent implements OnInit {
   }
 
   constructor(private _heroesService: HeroesService, private router: Router, private route: ActivatedRoute) { 
-    this.route.params.subscribe(paramentros => this.id = paramentros['id']);
+    this.route.params.subscribe(paramentros => {
+      
+      this.id = paramentros['id'];
+
+      if (this.id !== 'nuevo') {
+        this._heroesService.getHeroe( this.id ).subscribe ( data => this.heroe = data);
+      }
+    });
   }
 
   ngOnInit() {
@@ -42,7 +49,14 @@ export class ShowHeroeComponent implements OnInit {
           console.log(data);
         }, error => console.log(error));
     }
+  }
 
+  agregarNuevo( forma: NgForm) {
+
+    this.router.navigate(['/heroe', 'nuevo']);
+    forma.reset({
+      casa: 'Marvel'
+    });
   }
 
 }
