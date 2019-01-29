@@ -11,7 +11,7 @@ import { HeroesService } from "./services/heroes.service";
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
-import { ShowHeroeComponent } from './components/heroes/show-heroe.component';
+import { ShowHeroeComponent } from './components/heroes/new-heroe.component';
 
 @NgModule({
   declarations: [

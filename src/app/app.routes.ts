@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HeroesComponent } from "./components/heroes/heroes.component";
-import { ShowHeroeComponent } from "./components/heroes/show-heroe.component";
+import { ShowHeroeComponent } from "./components/heroes/new-heroe.component";
 
 
 

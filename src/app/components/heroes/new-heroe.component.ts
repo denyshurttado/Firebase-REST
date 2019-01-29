@@ -5,8 +5,8 @@ import { HeroesService } from '../../services/heroes.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-show-heroe',
-  templateUrl: './show-heroe.component.html',
+  selector: 'app-new-heroe',
+  templateUrl: './new-heroe.component.html',
   styles: []
 })
 export class ShowHeroeComponent implements OnInit {
