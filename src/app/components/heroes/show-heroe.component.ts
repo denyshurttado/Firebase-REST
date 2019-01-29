@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { Heroe } from '../../interfaces/heroe.interface';
 import { HeroesService } from '../../services/heroes.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-show-heroe',
@@ -11,13 +11,19 @@ import { Router } from '@angular/router';
 })
 export class ShowHeroeComponent implements OnInit {
 
+  nuevo: boolean = false;
+  id: string;
+
+
   heroe: Heroe = {
     nombre:"",
     bio:"",
     casa:"Marvel"
   }
 
-  constructor(private _heroesService: HeroesService, private router: Router) { }
+  constructor(private _heroesService: HeroesService, private router: Router, private route: ActivatedRoute) { 
+    this.route.params.subscribe(paramentros => this.id = paramentros['id']);
+  }
 
   ngOnInit() {
   }
@@ -25,11 +31,18 @@ export class ShowHeroeComponent implements OnInit {
   guardar() {
     console.log(this.heroe);
 
-    this._heroesService.nuevoHeroe(this.heroe)
-      .subscribe(data => {
-        console.log(data);
-        this.router.navigate(['/heroe', data['name']]);
-      }, error => console.log(error));
+    if (this.id == "nuevo") {
+      this._heroesService.nuevoHeroe(this.heroe)
+        .subscribe(data => {
+          console.log(data);
+          this.router.navigate(['/heroe', data['name']]);
+        }, error => console.log(error));
+    } else {
+      this._heroesService.actualizarHeroe(this.heroe, this.id).subscribe(data => {
+          console.log(data);
+        }, error => console.log(error));
+    }
+
   }
 
 }
