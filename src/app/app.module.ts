@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 //ROUTES
 import { APP_ROUTING } from './app.routes';
 
+//PIPES
+import { KeysPipe } from './pipes/keys.pipe';
+
 //Services
 import { HeroesService } from "./services/heroes.service";
 
@@ -17,7 +20,8 @@ import { ShowHeroeComponent } from './components/heroes/new-heroe.component';
   declarations: [
     AppComponent,
     HeroesComponent,
-    ShowHeroeComponent
+    ShowHeroeComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
