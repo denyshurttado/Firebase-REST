@@ -23,7 +23,9 @@
                     <th scope="row"> {{ i+1 }} </th>
                     <td> {{ heroes[k].nombre }} </td>
                     <td> {{ heroes[k].casa }} </td>
-                    <td></td>
+                    <td>
+                        <button [routerLink]="['/heroe', k]" class="btn btn-outline-success">Editar</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
