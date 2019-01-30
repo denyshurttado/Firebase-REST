@@ -26,12 +26,12 @@ export class HeroesComponent implements OnInit {
   eliminarHeroe(key$:string){
     this._heroesService.eliminarHeroe(key$)
       .subscribe(data => {
-        // if (data) {
-          // console.error(data);
-        // } else {
+        if (data) {
+          console.error(data);
+        } else {
           //Todo bien
-          delete this.heroes;
-        // }
+          delete this.heroes[key$];
+        }
       });
   }
 
