@@ -23,12 +23,11 @@ export class ShowHeroeComponent implements OnInit {
 
   constructor(private _heroesService: HeroesService, private router: Router, private route: ActivatedRoute) { 
     this.route.params.subscribe(paramentros => {
-      
       this.id = paramentros['id'];
 
       if (this.id !== 'nuevo') {
         this._heroesService.getHeroe( this.id )
-        .subscribe( data => this.heroe = data);
+        .subscribe( (data: Heroe) => this.heroe = data);
       }
     });
   }
@@ -39,7 +38,7 @@ export class ShowHeroeComponent implements OnInit {
   guardar() {
     console.log(this.heroe);
 
-    if (this.id == "nuevo") {
+    if (this.id === 'nuevo') {
       this._heroesService.nuevoHeroe(this.heroe)
         .subscribe(data => {
           console.log(data);
